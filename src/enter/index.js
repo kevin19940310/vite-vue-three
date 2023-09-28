@@ -30,7 +30,7 @@ export const initCity = () => {
   // 添加灯光
   scene.add(new THREE.AmbientLight(0xadadad))
   const directionLight = new THREE.DirectionalLight(0xffffff)
-  directionLight.position.set(0, 0, 0)
+  directionLight.position.set(0,0,0)
   scene.add(directionLight)
 
   // 创建渲染器

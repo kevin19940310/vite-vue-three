@@ -1,28 +1,32 @@
-/**
- * 创建天空盒子
-*/
-import * as Thress from 'three';
-export default class Background {
+import * as THREE from 'three'
+
+export class Background {
   constructor(scene) {
     this.scene = scene;
-    this.url = '/src/assets/black-bg.png';
+    this.url = '../../src/assets/black-bg.png';
+
     this.init();
   }
-  init() {
-    // 创建纹理加载器
-    const loader = new Thress.TextureLoader();
-    const geometry = new Thress.SphereGeometry(5000, 32, 32);
-    const material = new Thress.MeshBasicMaterial({
-      side: Thress.DoubleSide,
-      map: loader.load(this.url)
-    });
 
-    const shpere = new Thress.Mesh(geometry, material);
-    shpere.position.copy({
+  // 创建天空盒
+  init() {
+    // 创建一个纹理加载器
+    const loader = new THREE.TextureLoader()
+
+    const geometry = new THREE.SphereGeometry(5000, 32, 32);
+    const material = new THREE.MeshBasicMaterial({
+      side: THREE.DoubleSide,
+      map: loader.load(this.url)
+    })
+
+    const sphere = new THREE.Mesh(geometry, material)
+
+    sphere.position.copy({
       x: 0,
       y: 0,
       z: 0,
     })
-    this.scene.add(shpere);
+
+    this.scene.add(sphere);
   }
-} 
+}

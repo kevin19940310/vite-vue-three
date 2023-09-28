@@ -1,11 +1,12 @@
-import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader';
-const loader = new FBXLoader();
+import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader.js'
+
+const fbxLoader = new FBXLoader()
 export const loadFBX = (url) => {
-  return new Promise((resolve, reject) => {
-    loader.load(url, (object) => {
-      resolve(object);
-    }, () => { }, (error) => {
+  return new Promise(((resolve, reject) => {
+    fbxLoader.load(url, (object) => {
+      resolve(object)
+    }, () => {}, (error) => {
       reject(error)
     })
-  })
+  }))
 }
